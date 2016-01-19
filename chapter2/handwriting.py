@@ -40,7 +40,7 @@ def handwritingClassTest():
         classifierResult = classify0(vectorUnderTest, trainingMat, hwLabels, 3)
         print("the classifier came back with: %d, the real answer is: %d" % (classifierResult, classNumstr))
         if(classifierResult != classNumstr): errorCount += 1.0
-    print("\nthe total number of errors is: %d" % errorCount)
-    print("\nthe total error rate is: %f" % (errorCount/float(mTest)))
+    print("\nThe total number of errors is: %d" % errorCount)
+    print("\nThe total error rate is: %f" % (errorCount/float(mTest)))
 
 handwritingClassTest()
