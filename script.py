@@ -1,5 +1,5 @@
-import chapter1.kNearestNeighbors as kNN
-import chapter1.dataUtility as du
+import chapter2.kNearestNeighbors as kNN
+import chapter2.dataUtility as du
 import os
 import numpy as np
 import matplotlib
