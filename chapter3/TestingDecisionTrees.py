@@ -1,7 +1,10 @@
 import chapter3.trees as trees
 import chapter3.plottingDecisionTrees as treePlot
 
-myData, labels = trees.createDataSet()
-print(myData)
-print(trees.createTree(myData,labels))
-treePlot.createPlot()
+print(treePlot.retrieveTree(1))
+
+myTree = treePlot.retrieveTree(0)
+myTree['no surfacing'][3] = 'maybe'
+treePlot.createPlot(myTree)
+
+
