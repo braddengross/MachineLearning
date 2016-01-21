@@ -1,4 +1,5 @@
 from math import log
+import operator
 
 def calcShannonEnt(dataSet):
     numEntries = len(dataSet)
@@ -33,7 +34,7 @@ def splitDataSet(dataSet, feature, value):
     return retDataSet
 
 def chooseBestFeatureToSplit(dataset):
-    numFeatures = len(dataset)
+    numFeatures = len(dataset[0]) - 1
     baseEntropy = calcShannonEnt(dataset)
     bestInfoGain = 0.0
     bestFeature = -1
@@ -48,7 +49,13 @@ def chooseBestFeatureToSplit(dataset):
         infoGain = baseEntropy - newEntropy
         if(infoGain > bestInfoGain):
             bestInfoGain = infoGain
-            bestFeature = I
+            bestFeature = i
     return bestFeature
+
+def createTree(dataSet, labels):
+    classList = [example[-1] for example in dataSet]
+    
+
+
 
 
