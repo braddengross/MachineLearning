@@ -38,8 +38,11 @@ def plotTree(myTree, parentPoint, nodeText):
     plotMidText(centerPoint, parentPoint, nodeText)
     plotNode(firstStr, centerPoint, parentPoint, decisionNode)
     secondDict =  myTree[firstStr]
-    plotTree.yOff = plotTree.yOff = 1.0/plotTree.totalD
+    plotTree.yOff = plotTree.yOff - 1.0/plotTree.totalD
+    if(plotTree.yOff == 0) :
+        print("problem")
     for key in secondDict.keys():
+        plt.show()
         if type(secondDict[key]).__name__=='dict':
             plotTree(secondDict[key], centerPoint, str(key))
         else:
@@ -59,4 +62,6 @@ def createPlot(inTree):
     plotTree.yOff = 1.0;
     plotTree(inTree, (0.5, 1.0), '')
     plt.show()
+
+
 

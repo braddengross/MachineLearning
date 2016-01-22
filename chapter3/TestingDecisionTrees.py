@@ -12,3 +12,5 @@ myTree = treePlot.retrieveTree(0)
 print(trees.classify(myTree, labels, [1,0]))
 print(trees.classify(myTree, labels, [1,1]))
 
+trees.storeTree(myTree, 'classifierStorage.txt')
+print(trees.grabTree('classifierStorage.txt'))
