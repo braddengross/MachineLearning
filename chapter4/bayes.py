@@ -28,10 +28,10 @@ def trainNB(trainingMatrix, trainingCatgories):
     numberOfTrainingDocs = len(trainingMatrix)
     numberOfWords = len(trainingMatrix[0])
     pAbusive = sum(trainingCatgories) / float(numberOfTrainingDocs)
-    p0Numerator = np.zeros(numberOfWords)
-    p1Numerator = np.zeros(numberOfWords)
-    p0Denominator = 0.0
-    p1Denominator = 0.0
+    p0Numerator = np.ones(numberOfWords)
+    p1Numerator = np.ones(numberOfWords)
+    p0Denominator = 2.0
+    p1Denominator = 2.0
     for i in range(numberOfTrainingDocs):
         if trainingCatgories[i] == 1:
             p1Numerator += trainingMatrix[i]
@@ -39,7 +39,15 @@ def trainNB(trainingMatrix, trainingCatgories):
         else:
             p0Numerator += trainingMatrix[i]
             p0Denominator += sum(trainingMatrix[i])
-    p1Vect = p1Numerator / p1Denominator
-    p0Vect = p0Numerator / p0Denominator
+    p1Vect = np.log(p1Numerator / p1Denominator)
+    p0Vect = np.log(p0Numerator / p0Denominator)
     return p0Vect, p1Vect, pAbusive
+
+def classiftNB(vectorToClassify, p0Vector, p1Vector, pClass1):
+    p1 = sum(vectorToClassify * p1Vector) + np.log(pClass1)
+    p0 = sum(vectorToClassify * p0Vector) + np.log(1-pClass1)
+    if p1 > p0:
+        return 1
+    else:
+        return 0
 
