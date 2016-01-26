@@ -19,10 +19,6 @@ datingDataMat, datingLabels = du.fileToMatrix("/Users/brad/PycharmProjects/machi
 print(datingDataMat)
 print(datingLabels[0:20])
 
-#fig = plt.figure()
-#ax = fig.add_subplot(111)
-#ax.scatter(datingDataMat[:, 1], datingDataMat[:, 2])
-#plt.show()
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
