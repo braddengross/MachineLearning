@@ -35,4 +35,9 @@ def splitAndLowercaseTokens(listOfTokens):
 
 
 #testingNB()
-bayes.spamTest()
+#bayes.spamTest()
+import feedparser
+import chapter4.importRss as bayesRss
+ny = feedparser.parse('http://newyork.craigslist.org/stp/index.rss')
+sf = feedparser.parse('http://sfbay.craigslist.org/stp/index.rss')
+vocabList, pNY, pSF = bayesRss.localWords(ny, sf)
