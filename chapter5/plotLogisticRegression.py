@@ -3,7 +3,6 @@ import numpy as np
 
 def plotBestFit(weights):
     import matplotlib.pyplot as plt
-    weights = weights.getA()
     dataMatrix, labelMatrix = lr.loadDataSet()
     dataArray = np.asarray(dataMatrix)
     n = np.shape(dataArray)[0]
